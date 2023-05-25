@@ -1,9 +1,7 @@
-type Props = {
-  name: string;
-};
+import { Container } from "react-bootstrap";
 
-const About = ({ name }: Props) => {
-  return <div> About {name} </div>;
+const About = () => {
+  return <Container>about</Container>;
 };
 
 export default About;
