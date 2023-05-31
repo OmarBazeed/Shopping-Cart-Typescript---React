@@ -3,4 +3,5 @@
   border-top: 1px solid tomato;
   border-radius: 50%;
   transition: all 0.3s;
+  overflow: hidden;
 }

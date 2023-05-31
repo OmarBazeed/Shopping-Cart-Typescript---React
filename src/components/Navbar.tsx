@@ -1,12 +1,16 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Container, Nav, NavbarBrand } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ShoppingCartContext } from "../context/ShoppingCartContext";
 
-type Props = {
-  name?: string;
-};
+const Navbar = () => {
+  const { dispatch }: any = useContext(ShoppingCartContext);
+  const handleClick = () => {
+    dispatch({
+      type: "OPENCART",
+    });
+  };
 
-const Navbar = (props: Props) => {
   useEffect(() => {
     const elements = document.querySelectorAll(".linkNav");
     elements.forEach((el) => {
@@ -45,7 +49,10 @@ const Navbar = (props: Props) => {
             About
           </Nav.Link>
         </Nav>
-        <button className="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center position-relative">
+        <button
+          className="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center position-relative"
+          onClick={handleClick}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"
