@@ -11,18 +11,19 @@ type Props = {
 const CardItem = ({ id, name, price, imgUrl }: Props) => {
   const { dispatch }: any = useContext(ShoppingCartContext);
   const [value, setValue] = useState(0);
+  const [clicked, setClicked] = useState(false);
 
   const handleIncrease = () => {
     dispatch({
       type: "ADDTOCART",
-      payload: { id, name, price, imgUrl },
+      payload: { id: Math.random(), name, price, imgUrl },
     });
     setValue(value + 1);
   };
   const handleDecrease = () => {
     dispatch({
       type: "REMOVEFROMCART",
-      payload: { id },
+      payload: { id: Math.random() },
     });
     value !== 0 && setValue(value - 1);
   };
@@ -38,15 +39,32 @@ const CardItem = ({ id, name, price, imgUrl }: Props) => {
         <p className="card-text">{name}</p>
         <p className="card-text">{price}</p>
       </div>
-      <div className="d-flex align-items-center justify-content-center gap-3 mb-3">
-        <button className="btn btn-outline-primary" onClick={handleDecrease}>
-          -
+
+      {clicked ? (
+        <div className="d-flex align-items-center justify-content-center gap-3 mb-3">
+          <button
+            className="btn btn-outline-primary"
+            onClick={handleDecrease}
+            disabled={value !== 0 ? false : true}
+          >
+            -
+          </button>
+          <p className="mb-0"> {value} </p>
+          <button className="btn btn-outline-danger" onClick={handleIncrease}>
+            +
+          </button>
+        </div>
+      ) : (
+        <button
+          className="btn btn-primary w-full p-2"
+          onClick={() => {
+            handleIncrease();
+            setClicked(true);
+          }}
+        >
+          Add To Cart
         </button>
-        <p className="mb-0"> {value} </p>
-        <button className="btn btn-outline-danger" onClick={handleIncrease}>
-          +
-        </button>
-      </div>
+      )}
     </div>
   );
 };

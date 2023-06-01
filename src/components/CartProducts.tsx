@@ -1,7 +1,8 @@
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import { useContext } from "react";
+import CartProductsItem from "./CartProductsItem";
 
-const CartItems = () => {
+const CartProducts = () => {
   const { cartItems, dispatch }: any = useContext(ShoppingCartContext);
 
   const handleClose = () => {
@@ -12,22 +13,25 @@ const CartItems = () => {
   return (
     <div>
       <div className="d-flex align-items-end justify-content-between">
-        <h5>Cart Items Are </h5>
+        <h5 className="text-uppercase font-monospace text-primary fw-bolder">
+          Cart Items Are
+        </h5>
         <button
-          className="btn btn-outline-danger rounded-circle"
+          className="btn  rounded-circle fs-3"
           onClick={handleClose}
+          style={{ transform: "translate-x-(180)" }}
         >
-          x
+          🏃
         </button>
       </div>
-
+      <hr />
       <div>
         {cartItems?.map((item: any) => {
-          return <p> {item.name}</p>;
+          return <CartProductsItem {...item} />;
         })}
       </div>
     </div>
   );
 };
 
-export default CartItems;
+export default CartProducts;

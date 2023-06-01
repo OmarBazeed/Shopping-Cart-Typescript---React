@@ -4,6 +4,10 @@ import { initialState, reducer } from "./reducer";
 type ShoppingCartProviderProps = {
   children: ReactNode;
 };
+// type initialStateProps = {
+//   cartItems: [];
+//   openCart: boolean;
+// };
 
 export const ShoppingCartContext = createContext({});
 
@@ -16,6 +20,7 @@ const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
         cartItems: state.cartItems,
         dispatch,
         openCart: state.openCart,
+        cartCount: state.cartCount,
       }}
     >
       {children}

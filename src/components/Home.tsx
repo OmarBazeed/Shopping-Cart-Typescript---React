@@ -3,7 +3,7 @@ import Data from "../data/data.json";
 import CardItem from "./CardItem";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
-import CartItems from "./CartItems";
+import CartProducts from "./CartProducts";
 
 const Home = () => {
   const { openCart }: any = useContext(ShoppingCartContext);
@@ -15,8 +15,8 @@ const Home = () => {
         })}
       </Container>
       {openCart && (
-        <div className="bg-black text-white position-absolute top-0 h-100 end-0 w-25 mt-5 p-3 ">
-          <CartItems />
+        <div className="bg-white text-dark position-absolute top-0 h-100 end-0 w-50 p-3 shadow-lg">
+          <CartProducts />
         </div>
       )}
     </>
