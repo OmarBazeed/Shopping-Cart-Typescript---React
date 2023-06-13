@@ -7,26 +7,28 @@ type Props = {
   imgUrl: string;
 };
 const CartProductsItem = ({ id, name, price, imgUrl }: Props) => {
-  const { dispatch }: any = useContext(ShoppingCartContext);
-  const handleDecrease = () => {
+  const { dispatch, cartItems }: any = useContext(ShoppingCartContext);
+  const handleREMOVE = () => {
     dispatch({
       type: "REMOVEFROMCART",
       payload: { id },
     });
+    console.log(cartItems.length);
+    cartItems.length === 1 && window.location.reload();
   };
   return (
-    <div className="card" style={{ width: "18rem" }} key={id}>
+    <div className="card p-1" key={id}>
       <img
         src={imgUrl}
         className="card-img-top"
         alt="..."
-        style={{ width: "100%", height: "300px" }}
+        style={{ maxWidth: "100%", height: "300px" }}
       />
       <div className="card-body d-flex align-items-center justify-content-between fw-bold">
         <p className="card-text">{name}</p>
         <p className="card-text">{price}</p>
       </div>
-      <button className="btn btn-danger w-full p-2" onClick={handleDecrease}>
+      <button className="btn btn-danger w-full p-2" onClick={handleREMOVE}>
         Remove From Cart
       </button>
     </div>

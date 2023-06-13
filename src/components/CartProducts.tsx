@@ -25,9 +25,13 @@ const CartProducts = () => {
         </button>
       </div>
       <hr />
-      <div>
+      <div className="d-flex align-items-center justify-content-center flex-column gap-5">
         {cartItems?.map((item: any) => {
-          return <CartProductsItem {...item} />;
+          return (
+            <div key={item.id}>
+              <CartProductsItem {...item} />
+            </div>
+          );
         })}
       </div>
     </div>

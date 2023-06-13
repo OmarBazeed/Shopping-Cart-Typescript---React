@@ -6,16 +6,23 @@ import { ShoppingCartContext } from "../context/ShoppingCartContext";
 import CartProducts from "./CartProducts";
 
 const Home = () => {
-  const { openCart }: any = useContext(ShoppingCartContext);
+  const { openCart, cartItems }: any = useContext(ShoppingCartContext);
   return (
     <>
       <Container className="d-flex align-items-center justify-content-center flex-wrap gap-4">
         {Data.map((ele) => {
-          return <CardItem {...ele} />;
+          return (
+            <div key={ele.id}>
+              <CardItem {...ele} />
+            </div>
+          );
         })}
       </Container>
-      {openCart && (
-        <div className="bg-white text-dark position-absolute top-0 h-100 end-0 w-50 p-3 shadow-lg">
+      {openCart && cartItems.length !== 0 && (
+        <div
+          className="text-dark position-absolute top-0 vh-100 end-0 w-50 p-3 shadow-lg overflow-scroll"
+          style={{ backgroundColor: "antiquewhite" }}
+        >
           <CartProducts />
         </div>
       )}
