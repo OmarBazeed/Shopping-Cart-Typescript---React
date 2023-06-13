@@ -22,7 +22,7 @@ const CartProductsItem = ({ id, name, price, imgUrl }: Props) => {
         src={imgUrl}
         className="card-img-top"
         alt="..."
-        style={{ maxWidth: "100%", height: "300px" }}
+        style={{ width: "100%", height: "300px" }}
       />
       <div className="card-body d-flex align-items-center justify-content-between fw-bold">
         <p className="card-text">{name}</p>
