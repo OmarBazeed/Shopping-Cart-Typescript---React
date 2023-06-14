@@ -13,16 +13,14 @@ const CartProductsItem = ({ id, name, price, imgUrl }: Props) => {
       type: "REMOVEFROMCART",
       payload: { id },
     });
-    console.log(cartItems.length);
     cartItems.length === 1 && window.location.reload();
   };
   return (
     <div className="card p-1" key={id}>
       <img
         src={imgUrl}
-        className="card-img-top"
+        className="card-img-top max-w-300 min-h-200"
         alt="..."
-        style={{ width: "100%", height: "300px" }}
       />
       <div className="card-body d-flex align-items-center justify-content-between fw-bold">
         <p className="card-text">{name}</p>

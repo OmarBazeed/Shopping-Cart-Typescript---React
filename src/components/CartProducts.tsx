@@ -17,7 +17,7 @@ const CartProducts = () => {
           Cart Items Are
         </h5>
         <button
-          className="btn  rounded-circle fs-3"
+          className="btn rounded-circle fs-3"
           onClick={handleClose}
           style={{ transform: "translate-x-(180)" }}
         >

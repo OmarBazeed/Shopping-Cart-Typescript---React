@@ -20,8 +20,8 @@ const Home = () => {
       </Container>
       {openCart && cartItems.length !== 0 && (
         <div
-          className="text-dark position-absolute top-0 vh-100 end-0 w-50 p-3 shadow-lg overflow-scroll"
-          style={{ backgroundColor: "antiquewhite" }}
+          className="text-dark position-absolute top-0  end-0 w-50 p-3 shadow-lg h-100 overflow-scroll overflow-x-hidden"
+          style={{ backgroundColor: "#353b48" }}
         >
           <CartProducts />
         </div>
