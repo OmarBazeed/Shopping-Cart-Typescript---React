@@ -14,7 +14,7 @@ const CartProducts = () => {
     <div>
       <div className="d-flex align-items-end justify-content-between">
         <h5 className="text-uppercase font-monospace text-primary fw-bolder">
-          Cart Items Are
+          Your Selected Items Are :
         </h5>
         <button
           className="btn rounded-circle fs-3"
